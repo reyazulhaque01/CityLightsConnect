@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Light Grievance System | Smart City</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .hero-bg {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1617142106762-85b882772528?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-lightbulb text-yellow-500 text-2xl mr-3"></i>
+                    <span class="font-bold text-xl text-slate-800">CityLights<span class="text-blue-600">Connect</span></span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-slate-600 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#report" class="text-slate-600 hover:text-blue-600 font-medium">Report Issue</a>
+                    <a href="#track" class="text-slate-600 hover:text-blue-600 font-medium">Track Status</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-center px-4 pt-16">
+        <div class="max-w-3xl">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Light Up Your City</h1>
+            <p class="text-xl text-slate-200 mb-8">A Smart City initiative to ensure safe streets. Report faulty street lights instantly using our geolocation-enabled system.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#report" class="bg-yellow-500 text-slate-900 font-bold px-8 py-3 rounded-full hover:bg-yellow-400 transition shadow-lg transform hover:scale-105">
+                    <i class="fa-solid fa-camera mr-2"></i> Report Fault
+                </a>
+                <a href="#track" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-full hover:bg-white hover:text-slate-900 transition">
+                    <i class="fa-solid fa-magnifying-glass mr-2"></i> Track Complaint
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 bg-white shadow-sm -mt-20 relative z-10 mx-4 md:mx-auto max-w-6xl rounded-xl border border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <div class="p-4">
+                <div class="text-4xl font-bold text-blue-600 mb-2">1,240</div>
+                <div class="text-slate-500 font-medium uppercase tracking-wide text-sm">Complaints Resolved</div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl font-bold text-yellow-500 mb-2">24<span class="text-lg"> hrs</span></div>
+                <div class="text-slate-500 font-medium uppercase tracking-wide text-sm">Avg. Response Time</div>
+            </div>
+            <div class="p-4">
+                <div class="text-4xl font-bold text-green-600 mb-2">98%</div>
+                <div class="text-slate-500 font-medium uppercase tracking-wide text-sm">Citizen Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <div class="max-w-7xl mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Left Column: Report Form -->
+        <div id="report" class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+            <div class="flex items-center mb-6">
+                <div class="bg-blue-100 p-3 rounded-full mr-4">
+                    <i class="fa-solid fa-pen-to-square text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-800">Lodge a Complaint</h2>
+                    <p class="text-slate-500 text-sm">Fill in the details below. Location is mandatory.</p>
+                </div>
+            </div>
+
+            <!-- Form submits to self (simulation) -->
+            <form onsubmit="event.preventDefault(); alert('This is a preview. In the PHP version, this submits to the server.');" class="space-y-5">
+                
+                <!-- Personal Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+                        <input type="text" name="name" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Mobile Number</label>
+                        <input type="tel" name="phone" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="+91 9876543210">
+                    </div>
+                </div>
+
+                <!-- Location (Geotag) -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Location of Faulty Pole</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="locationInput" name="location" readonly required class="w-full px-4 py-2 border border-slate-300 rounded-lg bg-slate-50 text-slate-500 cursor-not-allowed" placeholder="Coordinates will appear here">
+                        <button type="button" onclick="detectLocation()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition flex items-center whitespace-nowrap">
+                            <i class="fa-solid fa-location-crosshairs mr-2"></i> Detect
+                        </button>
+                    </div>
+                    <p id="locationStatus" class="text-xs text-slate-400 mt-1"><i class="fa-solid fa-info-circle"></i> Click 'Detect' to get precise GPS coordinates.</p>
+                </div>
+
+                <!-- Issue Type -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Issue Type</label>
+                    <select name="issueType" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                        <option value="Not Working">Light Not Working (Complete Blackout)</option>
+                        <option value="Flickering">Light Flickering</option>
+                        <option value="Damaged Pole">Physically Damaged Pole</option>
+                        <option value="Dim Light">Very Dim Light</option>
+                        <option value="Daytime On">Light ON during Daytime</option>
+                    </select>
+                </div>
+
+                <!-- Photo Upload -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Upload Photo (Proof)</label>
+                    <div class="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:bg-slate-50 transition cursor-pointer relative">
+                        <input type="file" name="photo" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" accept="image/*" onchange="previewImage(event)">
+                        <div id="uploadPreview">
+                            <i class="fa-solid fa-cloud-arrow-up text-3xl text-slate-400 mb-2"></i>
+                            <p class="text-sm text-slate-500">Click to upload or drag and drop</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-slate-900 text-white font-bold py-3 rounded-lg hover:bg-slate-800 transition shadow-md">
+                    Submit Grievance
+                </button>
+            </form>
+        </div>
+
+        <!-- Right Column: Tracking & Live Feed -->
+        <div class="space-y-8">
+            
+            <!-- Tracking Box -->
+            <div id="track" class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 h-fit">
+                <div class="flex items-center mb-6">
+                    <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                        <i class="fa-solid fa-ticket text-yellow-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Track Complaint</h2>
+                        <p class="text-slate-500 text-sm">Enter your Ticket ID to check status.</p>
+                    </div>
+                </div>
+                
+                <form onsubmit="event.preventDefault(); alert('In PHP version, this checks status via GET request.');" class="flex gap-2">
+                    <input type="text" name="ticket_id" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-yellow-500 outline-none uppercase" placeholder="Ex: TKT-2023-889">
+                    <button type="submit" class="bg-yellow-500 text-slate-900 font-bold px-6 py-2 rounded-lg hover:bg-yellow-400 transition">Check</button>
+                </form>
+
+                <!-- Static Preview of Status Result (Hidden by default in PHP, shown here for demo) -->
+                <div class="mt-6 p-4 bg-slate-50 rounded-lg border border-slate-200">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Status</p>
+                            <p class="text-lg font-bold text-blue-600">Assigned to Worker</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-slate-500 uppercase tracking-wider font-semibold">ETA</p>
+                            <p class="text-sm font-medium">24 Hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full bg-slate-200 h-2 rounded-full mt-4 overflow-hidden">
+                        <div class="bg-blue-600 h-full rounded-full" style="width: 60%"></div>
+                    </div>
+                    <div class="flex justify-between text-xs text-slate-400 mt-2">
+                        <span>Reported</span>
+                        <span>Assigned</span>
+                        <span>Resolved</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Reports (Static HTML simulation of PHP Loop) -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-slate-100">
+                <h3 class="font-bold text-lg text-slate-800 mb-4 flex items-center">
+                    <span class="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></span> Live Reports
+                </h3>
+                <div class="space-y-4">
+                    <!-- Item 1 -->
+                    <div class="flex items-start gap-3 p-3 hover:bg-slate-50 rounded-lg transition border-b border-slate-50 last:border-0">
+                        <div class="bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-user text-slate-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-slate-800">Zone 4 - Market Road</p>
+                            <p class="text-xs text-slate-500">Street Light Flickering • <span class="text-slate-400">10 mins ago</span></p>
+                            <span class="inline-block px-2 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] font-bold rounded mt-1">OPEN</span>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="flex items-start gap-3 p-3 hover:bg-slate-50 rounded-lg transition border-b border-slate-50 last:border-0">
+                        <div class="bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-user text-slate-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-slate-800">Sector 9 - Park View</p>
+                            <p class="text-xs text-slate-500">Pole Damaged • <span class="text-slate-400">1 hour ago</span></p>
+                            <span class="inline-block px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-bold rounded mt-1">ASSIGNED</span>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="flex items-start gap-3 p-3 hover:bg-slate-50 rounded-lg transition border-b border-slate-50 last:border-0">
+                        <div class="bg-slate-200 w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-user text-slate-500 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium text-slate-800">Main St - Block B</p>
+                            <p class="text-xs text-slate-500">Complete Blackout • <span class="text-slate-400">3 hours ago</span></p>
+                            <span class="inline-block px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded mt-1">RESOLVED</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center mb-4">
+                    <i class="fa-solid fa-lightbulb text-yellow-500 text-xl mr-2"></i>
+                    <span class="font-bold text-xl">CityLightsConnect</span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed max-w-sm">
+                    A project initiative to streamline street light maintenance using public participation and GPS technology.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-slate-200">Quick Links</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-white transition">Admin Login</a></li>
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-slate-200">Contact</h4>
+                <ul class="space-y-2 text-sm text-slate-400">
+                    <li><i class="fa-solid fa-phone mr-2"></i> 1800-123-LIGHT</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS for Client-Side Interactivity in Preview -->
+    <script>
+        function detectLocation() {
+            const locInput = document.getElementById('locationInput');
+            const locStatus = document.getElementById('locationStatus');
+            
+            locStatus.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Fetching coordinates...';
+            
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude.toFixed(6);
+                        const lng = position.coords.longitude.toFixed(6);
+                        
+                        locInput.value = `${lat}, ${lng}`;
+                        locStatus.innerHTML = '<span class="text-green-600"><i class="fa-solid fa-check-circle"></i> Location locked successfully.</span>';
+                        locInput.classList.remove('bg-slate-50', 'text-slate-500', 'cursor-not-allowed');
+                        locInput.classList.add('bg-green-50', 'text-green-700', 'border-green-300');
+                    },
+                    (error) => {
+                        locStatus.innerHTML = '<span class="text-red-600"><i class="fa-solid fa-circle-exclamation"></i> GPS Access Denied.</span>';
+                        // Fallback
+                        setTimeout(() => {
+                            locInput.value = "28.613900, 77.209000"; 
+                            locStatus.innerHTML += " (Using Default)";
+                        }, 1000);
+                    }
+                );
+            } else {
+                locStatus.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const previewContainer = document.getElementById('uploadPreview');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewContainer.innerHTML = `
+                        <img src="${e.target.result}" class="h-24 w-auto mx-auto rounded-lg shadow-sm object-cover">
+                        <p class="text-xs text-green-600 mt-2 font-medium">${file.name}</p>
+                    `;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+</body>
+</html>
